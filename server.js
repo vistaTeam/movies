@@ -9,6 +9,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+
+// connecting to mongoDB atlas
 const uri = process.env.ATLAS_URI
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true});
 const db = mongoose.connection;
@@ -20,6 +22,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter)
+
 
 
 if (process.env.NODE_ENV === 'production') {

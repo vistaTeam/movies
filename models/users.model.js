@@ -23,7 +23,7 @@ const userSchema = new Schema({
         minlength: 3
     },
     movies:{
-        type: Object
+        type: Array
     },
     name:{
         type: String,

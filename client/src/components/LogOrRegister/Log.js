@@ -30,6 +30,7 @@ export default class Log extends Component {
 
     }
 
+    // checking user details
     checkUserDetails=()=>{
         this.setState({showForm: false, showLoudingPart: true})
         axios.get(`/users/findUser/${this.state.username}`)
@@ -48,20 +49,24 @@ export default class Log extends Component {
     }
 
     
+    //change page to register
     changeToRegister=()=>{
         this.props.changeShow('register')
     }
 
+    //change page to forget password  
     changeToForgetPassword=()=>{
         this.props.changeShow('forget-password')
     }
 
+    //show error message
     showErorMessage=()=>{
         if (this.state.erorMessage == true) {
             return <p className='eror-message-log-in'>sorry, username or password is incorrect!</p>
         }
     }
 
+    //show louding animation
     showLoudingPart=()=>{
         if (this.state.showLoudingPart == true) {
             return (
@@ -71,6 +76,8 @@ export default class Log extends Component {
         }
     }
 
+
+    // show the form
     showForm=()=>{
         if (this.state.showForm == true) {
             return( <div>
@@ -104,7 +111,6 @@ export default class Log extends Component {
                 {this.showForm()}
                 {this.showLoudingPart()}
 
-               
             </div>
         )
     }

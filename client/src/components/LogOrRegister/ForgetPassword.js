@@ -32,9 +32,8 @@ export default class ForgetPassword extends Component {
         }
     }
     
-
+    // checking if the email is registered
     checkUserDetails=()=>{
-
         this.setState({showForm: false, showLoudingPart: true})
         axios.get(`/users/findEmail/${this.state.email}`)
         .then(res => {
@@ -54,6 +53,7 @@ export default class ForgetPassword extends Component {
     }
 
     
+    // send email with login details
     sendEmail=()=>{
         var templateParams = {
             user_name: this.state.user.username,
@@ -71,6 +71,8 @@ export default class ForgetPassword extends Component {
             });
     }
 
+
+    // show form
     showForm=()=>{
         if (this.state.showForm == true) {
             return( <div>
@@ -80,7 +82,7 @@ export default class ForgetPassword extends Component {
             </div>)}}
 
 
-    
+    // show error message
     showErrorMessage=()=>{
         if (this.state.showErrorMessage == true) {
             return (<div>
@@ -91,6 +93,7 @@ export default class ForgetPassword extends Component {
         }
     }
 
+    // show succsess message
     showSuccsessMessage=()=>{
         if (this.state.showSuccsessMessage == true) {
             return(<div>
@@ -99,7 +102,7 @@ export default class ForgetPassword extends Component {
         }
     }
 
-    
+    // show animation part
     showLoudingPart=()=>{
         if (this.state.showLoudingPart == true) {
             return (
@@ -109,10 +112,13 @@ export default class ForgetPassword extends Component {
         }
     }
 
+    // change page to login
     changeToLogin=()=>{
         this.props.changeShow('log')
     }
 
+
+    // change page to register
     changeToRegister=()=>{
         this.props.changeShow('register')
     }

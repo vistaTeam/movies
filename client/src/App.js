@@ -15,7 +15,7 @@ state={
 }
 
 
-// showing the login page
+// showing the login page or Dashboard page
 logOrUser=()=>{
   if (this.state.user == '') {
     return <LoginPage></LoginPage>
