@@ -79,7 +79,7 @@ export default class MyMovies extends Component {
         return (
             <div>
             <div className='items-show'>
-            {this.state.movies[0].map((e, i)=>{
+            {this.state.movies[this.state.pointOfRes].map((e, i)=>{
                 if (e.Poster) {
                     return(<div>
                         <div className='hover-image'></div>
