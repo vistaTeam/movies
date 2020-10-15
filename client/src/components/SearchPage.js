@@ -25,14 +25,14 @@ export default class SearchPage extends Component {
         {this.setState({pointOfRes: 0})}
 
         if (s.length > 2) {
-            await axios.get(`http://www.omdbapi.com/?s=${s}&apikey=fa0ae931`)
+            await axios.get(`https://www.omdbapi.com/?s=${s}&apikey=fa0ae931`)
         .then(res => {
             if (res.data.totalResults > 10) {
 
                 var searchResult = []
                 let index = 0;
                 for (index = 0; index < Math.round(res.data.totalResults/10); index++) {
-                    axios.get(`http://www.omdbapi.com/?s=${s}&page=${index+1}&apikey=fa0ae931`)
+                    axios.get(`https://www.omdbapi.com/?s=${s}&page=${index+1}&apikey=fa0ae931`)
                     .then(res =>{
                         searchResult = [...searchResult, ...res.data.Search]
                         this.findImage(searchResult)

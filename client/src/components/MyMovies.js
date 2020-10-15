@@ -43,8 +43,6 @@ export default class MyMovies extends Component {
             if (idx % 10 === 0) tempResult.push([])
             tempResult[tempResult.length - 1].push(m[idx++])}
             this.setState({movies: tempResult})
-
-            console.log(JSON.stringify(tempResult));
     }
 
     // show arrow
